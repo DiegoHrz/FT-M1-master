@@ -12,6 +12,7 @@ function BinarioADecimal(num) {
       }
    })
    return finalNum;
+   //return num.split('').reduce(sum,digit,index)=>sum +parseInt(digit) * Math.pow(2, num.length -1 -index),0);
 }
 
 console.log(BinarioADecimal('111'))

@@ -9,29 +9,29 @@ Determiná que será impreso en la consola, sin ejecutar el código.
 ```javascript
 x = 1;
 var a = 5;
-var b = 10;
+var b = 10;       
 var c = function (a, b, c) {
-   var x = 10;
-   console.log(x);
-   console.log(a);
+   var x = 10; 
+   console.log(x); //10
+   console.log(a); // 8 
    var f = function (a, b, c) {
-      b = a;
-      console.log(b);
-      b = c;
-      var x = 5;
+      b = a;     
+      console.log(b);   // 8
+      b = c;      
+      var x = 5; x=5
    };
-   f(a, b, c);
-   console.log(b);
+   f(a, b, c);  // 
+   console.log(b); // 9
 };
 c(8, 9, 10);
-console.log(b);
-console.log(x);
+console.log(b);//10
+console.log(x); // 1
 ```
 
 ```javascript
-console.log(bar);
-console.log(baz);
-foo();
+console.log(bar); // undefined
+console.log(baz); // error
+foo();   //Hola!
 function foo() {
    console.log('Hola!');
 }
@@ -44,32 +44,32 @@ var instructor = 'Tony';
 if (true) {
    var instructor = 'Franco';
 }
-console.log(instructor);
+console.log(instructor);   //Franco
 ```
 
 ```javascript
 var instructor = 'Tony';
-console.log(instructor);
+console.log(instructor); // Tony
 (function () {
    if (true) {
       var instructor = 'Franco';
       console.log(instructor);
    }
-})();
-console.log(instructor);
+})(); // Franco
+console.log(instructor); //Tony
 ```
 
 ```javascript
-var instructor = 'Tony';
+var instructor = 'Tony'; 
 let pm = 'Franco';
 if (true) {
-   var instructor = 'The Flash';
-   let pm = 'Reverse Flash';
-   console.log(instructor);
-   console.log(pm);
+   var instructor = 'The Flash'; //var si cambia la variabl global no solo en el bloque
+   let pm = 'Reverse Flash'; // se declara una nueva variable en el bloque debido a let. si no le ponia let si lo modificaba globalment
+   console.log(instructor); // The Flash
+   console.log(pm);        // Reverse Flash
 }
-console.log(instructor);
-console.log(pm);
+console.log(instructor); // The Flash 
+console.log(pm);        // Franco
 ```
 
 ### Coerción de Datos
@@ -77,22 +77,22 @@ console.log(pm);
 ¿Cuál crees que será el resultado de la ejecución de estas operaciones?:
 
 ```javascript
-6 / "3"
-"2" * "3"
-4 + 5 + "px"
-"$" + 4 + 5
-"4" - 2
-"4px" - 2
-7 / 0
-{}[0]
-parseInt("09")
-5 && 2
-2 && 5
-5 || 0
-0 || 5
-[3]+[3]-[10]
-3>2>1
-[] == ![]
+6 / "3"           // 2
+"2" * "3"         //6
+4 + 5 + "px"      //9px
+"$" + 4 + 5       //$45
+"4" - 2           //2
+"4px" - 2         //Nan
+7 / 0             //infinite
+{}[0]             //undefined
+parseInt("09")    //9
+5 && 2            //2
+2 && 5            //5
+5 || 0            // 5
+0 || 5            // 5
+[3]+[3]-[10]      //lo asume como strings los [3] estonces los concatena 33 - 10 = 23
+3>2>1             //true>1 => 1>1 false
+[] == ![]         // '' == 0   =>   0 == 0   =>   true
 ```
 
 > Si te quedó alguna duda repasá con [este artículo](http://javascript.info/tutorial/object-conversion).
@@ -103,8 +103,8 @@ parseInt("09")
 
 ```javascript
 function test() {
-   console.log(a);
-   console.log(foo());
+   console.log(a);      //undefined
+   console.log(foo());  // 2, porq las funciones puedes ser definidas despues
 
    var a = 1;
    function foo() {
@@ -128,7 +128,7 @@ function getFood(food) {
    return snack;
 }
 
-getFood(false);
+getFood(false); // null
 ```
 
 ### This
@@ -147,11 +147,11 @@ var obj = {
    },
 };
 
-console.log(obj.prop.getFullname());
+console.log(obj.prop.getFullname());   //Aurelio De Rosa por el scope
 
-var test = obj.prop.getFullname;
+var test = obj.prop.getFullname;// al tenerla como un metodo de un objeto this se refiere al objeto en el q se llamo la funcion, por lo q la funcion se invoca de forma aislada por lo q this apunta al objeto global y no al objeto
 
-console.log(test());
+console.log(test());          //Juan Perez
 ```
 
 ### Event loop
@@ -160,14 +160,14 @@ Considerando el siguiente código, ¿Cuál sería el orden en el que se muestra 
 
 ```javascript
 function printing() {
-   console.log(1);
-   setTimeout(function () {
+   console.log(1);            //1ro
+   setTimeout(function () {   //ultimo funcion asincronica 1s
       console.log(2);
    }, 1000);
-   setTimeout(function () {
+   setTimeout(function () {   //3ro funcion asincronica 0s
       console.log(3);
    }, 0);
-   console.log(4);
+   console.log(4);            //2do
 }
 
 printing();
