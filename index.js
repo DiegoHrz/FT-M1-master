@@ -22,7 +22,7 @@ for(let i = 0; i < mascotas.length; i++){
 console.log('yo soy' + 3) //yo soy3
 console.log('2' + 3) // 23
 console.log('2' * 3) // 6
-console.log('yo soy' + 3) //Nan
+console.log('yo soy' - 3) //Nan
 
 //Consersion de datos (solo se hace manual y cohersion es auatomatic x js)
 console.log(Number("2") + 3) // 5

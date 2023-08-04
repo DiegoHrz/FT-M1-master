@@ -13,7 +13,18 @@ nuevoContador()     // 2
 const otroContador = counter()
 otroContador()      // 1
 otroContador()      // 2 */
-function counter() {}
+function counter() {
+  let i = 0;
+ return function(){
+  return i = i + 1
+ }
+  // let counter = 0
+  // return function(){
+  //   counter++
+  //   return counter 
+  // }
+
+}
 
 /* Ejercicio 2
 Tu tarea aquí es lograr, mediante un closure, que cacheFunction actúe como una memoria caché para el callback 
@@ -33,7 +44,23 @@ otra vez cálculos que ya se hicieron anteriormente.
   squareCache(5)    // invocará a square(5), almacenará el resultado y lo retornará
   squareCache(5)    // no volverá a invocar a square, simplemente buscará en la caché cuál es el resultado de square(5) y lo retornará (tip: si usaste un objeto, podés usar hasOwnProperty) */
 
-function cacheFunction(cb) {}
+/*const multiplicar = function (x){ // esta la considera como ejemplo la funcion cb
+  return x*2 
+};*/
+
+function cacheFunction(cb) {
+  let memoria = {}
+
+  return function (arg){
+    if(memoria.hasOwnProperty(arg)) return memoria[arg]
+    else{
+    // let numero = arg 
+    // let resultado = cb(arg);
+    return (memoria[numero] = resultado)
+  }
+  }
+  //return memoria.hasOwnProperty(arg) ? memoria[arg] : (memoria[arg] = cb(arg));
+}
 
 //----------------------------------------
 
@@ -49,8 +76,8 @@ var alumno = {
    curso: 'FullStack',
 };
 
-function getNombre() {
-  return this.nombre;}
+// function getNombre() {
+//   return this.nombre;}
 
 /*
   Ejercicio 3
