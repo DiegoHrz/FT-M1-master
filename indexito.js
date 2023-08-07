@@ -45,15 +45,24 @@
 // f1()
 
 
-function counter() {
-    let contador = 0;
+// function counter() {
+//     let contador = 0;
     
-    return function(){
-      return  contador++
+//     return function(){
+//       return  contador++
   
-    }
-  }
-  let i = counter()
-  console.log(i())
-  console.log(i())
-  console.log(i())
+//     }
+//   }
+//   let i = counter()
+//   console.log(i())
+//   console.log(i())
+//   console.log(i())
+
+
+let arr = [1,2,3,4]
+function arrua(arr, i=0){
+  if(arr.length <= i) return 
+  console.log(arr[i])
+  return arrua(arr,++ i)
+}
+arrua(arr)
