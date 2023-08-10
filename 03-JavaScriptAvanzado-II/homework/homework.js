@@ -13,20 +13,6 @@ nuevoContador()     // 2
 const otroContador = counter()
 otroContador()      // 1
 otroContador()      // 2 */
-<<<<<<< HEAD
-function counter() {
-  let i = 0;
- return function(){
-  return i = i + 1
- }
-  // let counter = 0
-  // return function(){
-  //   counter++
-  //   return counter 
-  // }
-
-}
-=======
 
 
 
@@ -42,7 +28,6 @@ function counter() {
 
 
 
->>>>>>> b602ed2 (Add Homework 3)
 
 /* Ejercicio 2
 Tu tarea aquí es lograr, mediante un closure, que cacheFunction actúe como una memoria caché para el callback 
@@ -67,18 +52,6 @@ otra vez cálculos que ya se hicieron anteriormente.
 };*/
 
 function cacheFunction(cb) {
-<<<<<<< HEAD
-  let memoria = {}
-
-  return function (arg){
-    if(memoria.hasOwnProperty(arg)) return memoria[arg]
-    else{
-    // let numero = arg 
-    // let resultado = cb(arg);
-    return (memoria[numero] = resultado)
-  }
-  }
-=======
   let memoriaCache = {}
 
   return (arg) => {
@@ -87,7 +60,6 @@ function cacheFunction(cb) {
 
   }
 
->>>>>>> b602ed2 (Add Homework 3)
   //return memoria.hasOwnProperty(arg) ? memoria[arg] : (memoria[arg] = cb(arg));
 }
 
